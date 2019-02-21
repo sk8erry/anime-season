@@ -1,0 +1,102 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: rgb(9, 44, 100);
+  align-content: center;
+  padding: 10px;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.App-title {
+  font-family: 'Bangers', cursive;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.form {
+  font-family: 'Overpass', sans-serif;
+}
+
+button {
+  border: none;
+}
+
+button:hover {
+  border: 1px solid;
+}
+
+.anime {
+  border: 1px solid black;
+}
+
+.anime-title {
+  text-align: left;
+  margin-right: 10px;
+  margin-bottom: 0;
+  font-family: 'Overpass', sans-serif;
+}
+
+.anime-synopsis {
+  overflow-y: hidden;
+  height: 120px;
+  text-align: left;
+  padding-right: 10px;
+  font-size: 14px;
+  font-family: 'Overpass', sans-serif;
+}
+
+.anime-synopsis:hover {
+  overflow-y: scroll;
+}
+
+.anime-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 250px;
+}
+
+.anime-col img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.source-wrapper {
+  text-align: right;
+}
+
+.source {
+  font-family: 'Overpass', sans-serif;
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 0 10px 0 10px;
+}
+
+@media (max-width: 978px) {
+  .container {
+    padding:0;
+    margin:0;
+  }
+}
