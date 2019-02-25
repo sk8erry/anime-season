@@ -18,6 +18,12 @@
 
 .App-title {
   font-family: 'Bangers', cursive;
+  height: 15%;
+  display: block;
+}
+
+.anime-container div {
+  border: solid 1px black;
 }
 
 .App-link {

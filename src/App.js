@@ -7,28 +7,110 @@ const baseURL = 'https://api.jikan.moe/v3/season'
 const year = '2019'
 const season = 'winter'
 
+var query = `
+query ($season: MediaSeason, $seasonYear: Int, $page: Int, $perPage: Int) {
+  Page (page: $page, perPage: $perPage) {
+    pageInfo {
+      total
+      currentPage
+      lastPage
+      hasNextPage
+      perPage
+    }
+    media (season: $season, seasonYear: $seasonYear) {
+      id
+      title {
+        romaji
+        native
+      }
+      season
+      startDate {
+        year
+        month
+      }
+      genres
+      status
+      averageScore
+      coverImage {
+        large
+      }
+      source
+      averageScore
+      popularity
+    }
+  }
+}
+`
+
 class App extends Component {
   state = {
-    animes: []
+    url: 'https://graphql.anilist.co',
+    media: [],
+    variables: {
+      season: "WINTER",
+      seasonYear: 2019,
+      page: 1,
+      perPage: 50
+    },
+    sortBy: ""
   }
-
-  componentDidMount = async () => {
-    const apiCall = await fetch(`${baseURL}/${year}/${season}`)
-    const data = await apiCall.json()
-    this.setState({
+  /*
+  this.setState({
       animes: data.anime.sort(function(a,b){
         return b.score - a.score
       })
     })
+  */
+  componentDidMount = () => {
+    this.getMedia()
+  }
+
+  getMedia = async () => {
+    const apiCall = await fetch(
+      this.state.url, 
+      {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+            query: query,
+            variables: this.state.variables
+        })
+      }
+    )
+
+    const data = await apiCall.json()
+
+    this.setState({
+      media: [...this.state.media, ...data.data.Page.media]
+    })
+    
+    if(data.data.Page.pageInfo.hasNextPage) {
+      let variables = Object.assign({}, this.state.variables)
+      variables.page += 1
+      this.setState({variables})
+      this.getMedia()
+    } //recursively call getMedia if multipage
+    
+    this.setState({
+      media: this.state.media.sort(function(a,b){
+        return b.popularity - a.popularity
+      })
+    })
+
+    console.log(data)
   }
 
   render() {
+    console.log("state.media", this.state.media)
     return (
       <div className="App">
         <div className="App-header">
           <h1 className="App-title">AniSeason</h1>
         </div>
-        <Animes animes={this.state.animes.splice(0,20)}/>
+        <Animes animes={this.state.media.slice(0,10)} />
       </div>
     );
   }
