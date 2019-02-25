@@ -8,7 +8,7 @@ const year = '2019'
 const season = 'winter'
 
 var query = `
-query ($season: MediaSeason, $seasonYear: Int, $page: Int, $perPage: Int) {
+query ($season: MediaSeason, $seasonYear: Int, $page: Int, $perPage: Int, $sort: [MediaSort]) {
   Page (page: $page, perPage: $perPage) {
     pageInfo {
       total
@@ -17,7 +17,7 @@ query ($season: MediaSeason, $seasonYear: Int, $page: Int, $perPage: Int) {
       hasNextPage
       perPage
     }
-    media (season: $season, seasonYear: $seasonYear) {
+    media (season: $season, seasonYear: $seasonYear, sort: $sort) {
       id
       title {
         romaji
@@ -50,9 +50,9 @@ class App extends Component {
       season: "WINTER",
       seasonYear: 2019,
       page: 1,
-      perPage: 50
-    },
-    sortBy: ""
+      perPage: 50,
+      sort: "POPULARITY_DESC"
+    }
   }
   /*
   this.setState({
@@ -93,14 +93,14 @@ class App extends Component {
       this.setState({variables})
       this.getMedia()
     } //recursively call getMedia if multipage
-    
+    /*
     this.setState({
       media: this.state.media.sort(function(a,b){
         return b.popularity - a.popularity
       })
     })
-
-    console.log(data)
+    */
+    console.log("data:", data)
   }
 
   render() {
