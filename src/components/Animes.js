@@ -2,9 +2,16 @@ import React from 'react'
 import Anime from './Anime'
 
 class Animes extends React.Component {
+	state = {
+		animes: []
+	}
+
+	shouldComponentUpdate (nextProps) {
+		return (nextProps.animes[0] !== undefined)
+	}
 
 	render() {
-		console.log("Test anime component", this.props.animes)
+		console.log(this.props.animes)
 		return(
 			<div className="container">
 				<div className="row justify-content-center">

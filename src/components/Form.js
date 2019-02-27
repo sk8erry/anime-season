@@ -5,9 +5,9 @@ class Form extends React.Component {
     return(
       
       <div className="col-12">
+        <i className="fas fa-search"></i>
         <i className="fas fa-sort"></i>
         <i className="fas fa-share-alt"></i>
-        <i className="fas fa-search"></i>
       </div>
     
     )

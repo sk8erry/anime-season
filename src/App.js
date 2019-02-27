@@ -64,16 +64,8 @@ class App extends Component {
     this.getMedia()
   }
 
-  setSeasonYear = (season, year) => {
-    let variables = Object.assign({}, this.state.variables)
-    variables.season = season
-    variables.year = year
-    this.setState({
-      variables
-    })
-  }
-
   getMedia = async () => {
+    console.log("in getting media",this.state.variables)
     const apiCall = await fetch(
       this.state.url, 
       {
@@ -108,18 +100,28 @@ class App extends Component {
       })
     })
     */
-    console.log("data:", data)
+  }
+
+  handleSeasonChange = async (e) => {
+    let newseason = e.target.innerHTML.split(" ")
+    let variables = Object.assign({}, this.state.variables)
+    variables.season = newseason[0]
+    variables.seasonYear = parseInt(newseason[1])
+    await this.setState({variables})
+    this.setState({media: []})
+    this.getMedia()
   }
 
   render() {
-    console.log("state.media", this.state.media)
+    console.log(this.state.media)
     return (
+    
       <div className="App">
         <div className="App-header">
           <h1 className="App-title">SZBZLJ</h1>
         </div>
         <div>
-          <Seasons setSeasonYear={this.setSeasonYear}/>
+          <Seasons handleSeasonChange={this.handleSeasonChange}/>
         </div>
         <div className="container py-3">
           <div className="row justify-content-center" style={{color: "rgb(9, 44, 100)", fontSize: "30px"}}>
@@ -128,7 +130,7 @@ class App extends Component {
             </div>
           </div>
         </div>
-        <Animes animes={this.state.media.slice(0,10)} />
+        <Animes animes={this.state.media.slice(0,20)} />
       </div>
     );
   }

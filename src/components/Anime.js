@@ -6,9 +6,17 @@ class Anime extends React.Component {
 		console.log(airingStart.getDay())
 	}
 
+	state = {
+		anime: this.props.anime
+	}
+
+	shouldComponentUpdate(nextProps) {
+		return (nextProps.anime !== undefined)
+	}
+
 	render() {
 		return(
-			<div className="col-md-6">
+			<div className="col-lg-6">
 				<div className="container py-3 anime-container">
 					<div className="card">
 						<div className="row">
@@ -18,12 +26,11 @@ class Anime extends React.Component {
 									<div className="overlay">
 										{this.props.anime.title.native}
 										<br/>
-										{this.props.anime.studios.edges[0].node.name}
+										{this.props.anime.studios.edges.length === 0 ? "N/A" : this.props.anime.studios.edges[0].node.name}
 									</div>
 								</div>								
 								</div>
 								<div className="col-sm-7 col-6 anime-description">
-									
 								</div>
 						</div>
 					</div>

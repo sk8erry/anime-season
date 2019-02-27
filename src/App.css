@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-image: url("./img/memphis-colorful.png");
+  background-color: transparent;
 }
 
 .App-logo {
@@ -116,15 +116,15 @@ button:hover {
 
 .season-selection {
   color: rgb(9, 44, 100);
-  font-size: 25px;
+  font-size: 20px;
   font-family: 'Overpass', sans-serif;
   background: transparent;
   cursor: pointer;
 }
 
 .season-selected {
-  color: rgb(9, 100, 100);
-  font-size: 25px;
+  color: rgba(245, 37, 217, 0.808);
+  font-size: 20px;
   font-family: 'Overpass', sans-serif;
   background: transparent;
   cursor: pointer;
@@ -141,4 +141,9 @@ button:hover {
 button:focus {
   border: none;
   outline: 0 !important;
+}
+
+i {
+  margin-left: 20px;
+  font-size: 25px;
 }
