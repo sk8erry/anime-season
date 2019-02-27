@@ -100,6 +100,7 @@ class App extends Component {
       })
     })
     */
+    console.log("in getting media", this.state.media)
   }
 
   handleSeasonChange = async (e) => {
@@ -107,15 +108,17 @@ class App extends Component {
     let variables = Object.assign({}, this.state.variables)
     variables.season = newseason[0]
     variables.seasonYear = parseInt(newseason[1])
+    variables.page = 1
     await this.setState({variables})
-    this.setState({media: []})
+    this.setState({
+      media: []
+    })
     this.getMedia()
   }
 
   render() {
     console.log(this.state.media)
     return (
-    
       <div className="App">
         <div className="App-header">
           <h1 className="App-title">SZBZLJ</h1>

@@ -11,7 +11,6 @@ class Animes extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.animes)
 		return(
 			<div className="container">
 				<div className="row justify-content-center">

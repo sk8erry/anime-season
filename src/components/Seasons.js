@@ -1,10 +1,6 @@
 import React from 'react'
 
 class Seasons extends React.Component {
-  state = {
-    seleted: [true, false, false, false]
-  }
-
   handleClick = (e) => {
     let list = document.getElementsByClassName("season-selected")
     for (let element of list) {
