@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import Form from './components/Form'
 import Animes from './components/Animes'
 import './App.css';
-
-const baseURL = 'https://api.jikan.moe/v3/season'
-const year = '2019'
-const season = 'winter'
+import Seasons from './components/Seasons'
 
 var query = `
 query ($season: MediaSeason, $seasonYear: Int, $page: Int, $perPage: Int, $sort: [MediaSort]) {
@@ -37,6 +34,8 @@ query ($season: MediaSeason, $seasonYear: Int, $page: Int, $perPage: Int, $sort:
       source
       averageScore
       popularity
+      airingSchedule { edges { node { timeUntilAiring } } }
+      studios { edges { node { name } } }
     }
   }
 }
@@ -63,6 +62,15 @@ class App extends Component {
   */
   componentDidMount = () => {
     this.getMedia()
+  }
+
+  setSeasonYear = (season, year) => {
+    let variables = Object.assign({}, this.state.variables)
+    variables.season = season
+    variables.year = year
+    this.setState({
+      variables
+    })
   }
 
   getMedia = async () => {
@@ -108,7 +116,17 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h1 className="App-title">AniSeason</h1>
+          <h1 className="App-title">SZBZLJ</h1>
+        </div>
+        <div>
+          <Seasons setSeasonYear={this.setSeasonYear}/>
+        </div>
+        <div className="container py-3">
+          <div className="row justify-content-center" style={{color: "rgb(9, 44, 100)", fontSize: "30px"}}>
+            <div className="col-12" style={{textAlign: "right"}}>
+              <Form />
+            </div>
+          </div>
         </div>
         <Animes animes={this.state.media.slice(0,10)} />
       </div>

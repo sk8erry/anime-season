@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-image: url("./img/memphis-colorful.png");
 }
 
 .App-logo {
@@ -10,16 +11,14 @@
 }
 
 .App-header {
-  background-color: rgb(9, 44, 100);
   align-content: center;
   padding: 10px;
-  color: white;
-  margin-bottom: 2rem;
+  color: rgb(9, 44, 100);
 }
 
 .App-title {
   font-family: 'Bangers', cursive;
-  height: 15%;
+  font-size: 70px;
   display: block;
 }
 
@@ -54,8 +53,6 @@ button:hover {
 
 .anime-title {
   text-align: left;
-  margin-right: 10px;
-  margin-bottom: 0;
   font-family: 'Overpass', sans-serif;
 }
 
@@ -78,7 +75,7 @@ button:hover {
   align-items: center;
   overflow: hidden;
   height: 250px;
-  padding: 0 !important;
+  
 }
 
 .anime-col img {
@@ -105,7 +102,7 @@ button:hover {
   }
 }
 
-.tag {
+.overlay {
   float: left;
   position: absolute;
   left: 0px;
@@ -115,4 +112,33 @@ button:hover {
   background:rgba(255,255,255,0.8);
   padding: 5px;
   font-weight: bold;
+}
+
+.season-selection {
+  color: rgb(9, 44, 100);
+  font-size: 25px;
+  font-family: 'Overpass', sans-serif;
+  background: transparent;
+  cursor: pointer;
+}
+
+.season-selected {
+  color: rgb(9, 100, 100);
+  font-size: 25px;
+  font-family: 'Overpass', sans-serif;
+  background: transparent;
+  cursor: pointer;
+}
+
+button {
+  background: transparent;
+}
+
+button:hover {
+  border: none;
+}
+
+button:focus {
+  border: none;
+  outline: 0 !important;
 }
