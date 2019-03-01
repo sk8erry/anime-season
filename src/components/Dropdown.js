@@ -50,13 +50,13 @@ class Dropdown extends Component{
         <div className="dd-header" onClick={() => this.toggleList()}>
           <div className="dd-header-title">{headerTitle}</div>
           {listOpen
-            ? <i class="fas fa-angle-up" style={{marginRight: "5px"}}></i>
-            : <i class="fas fa-angle-down" style={{marginRight: "5px"}}></i>
+            ? <i class="fas fa-angle-up" style={{marginRight: "5px", position: "absolute", right: "5px"}}></i>
+            : <i class="fas fa-angle-down" style={{marginRight: "5px", position: "absolute", right: "5px"}}></i>
           }
         </div>
         {listOpen && <ul className="dd-list" onClick={e => e.stopPropagation()}>
           {list.map((item)=> (
-            <li className="dd-list-item" key={item.id} onClick={() => this.selectItem(item.title, item.id, item.key)}>{item.title} {item.selected && <i class="fas fa-check"></i>}</li>
+            <li className="dd-list-item" key={item.id} onClick={() => {this.selectItem(item.title, item.id, item.key)}}>{item.title} {item.selected && <i class="fas fa-check"></i>}</li>
           ))}
         </ul>}
       </div>

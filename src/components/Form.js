@@ -3,36 +3,30 @@ import Dropdown from './Dropdown'
 
 class Form extends React.Component {
   state = {
-    fruit: [
+    sort: [
       {
         id: 0,
-        title: 'Apple',
+        title: 'POPULARITY',
         selected: false,
-        key: 'fruit'
+        key: 'sort'
       },
       {
         id: 1,
-        title: 'Orange',
+        title: 'SCORE',
         selected: false,
-        key: 'fruit'
+        key: 'sort'
       },
       {
         id: 2,
-        title: 'Grape',
+        title: 'TRENDING',
         selected: false,
-        key: 'fruit'
+        key: 'sort'
       },
       {
         id: 3,
-        title: 'Pomegranate',
+        title: 'LATEST',
         selected: false,
-        key: 'fruit'
-      },
-      {
-        id: 4,
-        title: 'Strawberry',
-        selected: false,
-        key: 'fruit'
+        key: 'sort'
       }
     ]
   }
@@ -49,6 +43,7 @@ class Form extends React.Component {
     let temp = JSON.parse(JSON.stringify(this.state[key]))
     temp.forEach(item => item.selected = false);
     temp[id].selected = true;
+    this.props.handleSortChange(temp[id].title)
     this.setState({
       [key]: temp
     })
@@ -61,7 +56,7 @@ class Form extends React.Component {
           <i className="fas fa-share-alt"></i>
           <Dropdown 
             title="Sort by "
-            list={this.state.fruit}
+            list={this.state.sort}
             resetThenSet={this.resetThenSet}
           />
       </div>
