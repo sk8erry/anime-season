@@ -127,11 +127,9 @@ class App extends Component {
           <Seasons handleSeasonChange={this.handleSeasonChange}/>
         </div>
         <div className="container py-3">
-          <div className="row justify-content-center" style={{color: "rgb(9, 44, 100)", fontSize: "30px"}}>
-            <div className="col-12" style={{textAlign: "right"}}>
-              <Form />
-            </div>
-          </div>
+          
+            <Form />
+          
         </div>
         <Animes animes={this.state.media.slice(0,20)} />
       </div>
