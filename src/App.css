@@ -111,6 +111,8 @@ button:hover {
   z-index: 1000;
   background:rgba(255,255,255,0.8);
   padding: 5px;
+  font-size: 15px;
+  text-align: left;
   font-weight: bold;
 }
 
@@ -128,6 +130,7 @@ button:hover {
   font-family: 'Overpass', sans-serif;
   background: transparent;
   cursor: pointer;
+  text-align: center;
 }
 
 button {

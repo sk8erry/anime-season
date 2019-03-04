@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './styles/global.css'
+import './styles/dropdown.css'
 
 class Dropdown extends Component{
   state = {

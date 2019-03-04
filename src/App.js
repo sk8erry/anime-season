@@ -106,17 +106,18 @@ class App extends Component {
     console.log("getting media", this.state.media)
   }
 
-  handleSeasonChange = async (e) => {
+  handleSeasonChange = async (newseason) => {
+    console.log("arg",newseason)
     this.setState({
       media: []
     })
-    let newseason = e.target.innerHTML.split(" ")
     let variables = Object.assign({}, this.state.variables)
-    variables.season = newseason[0]
-    variables.seasonYear = parseInt(newseason[1])
+    variables.season = newseason.season
+    variables.seasonYear = newseason.year
     variables.page = 1
     await this.setState({variables})
     this.getMedia()
+    
   }
 
   handleSortChange = async (title) => {

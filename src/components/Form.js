@@ -52,13 +52,11 @@ class Form extends React.Component {
   render() {
     return(
       <div style={{textAlign: "right"}}>
-          <i className="fas fa-search"></i>
-          <i className="fas fa-share-alt"></i>
-          <Dropdown 
-            title="Sort by "
-            list={this.state.sort}
-            resetThenSet={this.resetThenSet}
-          />
+        <Dropdown 
+          title="Sort by "
+          list={this.state.sort}
+          resetThenSet={this.resetThenSet}
+        />
       </div>
     )
   }
