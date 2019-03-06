@@ -1,0 +1,24 @@
+.season-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-left: 30vw;
+  padding-right: 30vw;
+}
+
+.season-selection {
+  color: rgb(9, 44, 100);
+  font-size: 20px;
+  font-family: 'Overpass', sans-serif;
+  background: transparent;
+  cursor: pointer;
+}
+
+.season-selected {
+  color: rgba(245, 37, 217, 0.808);
+  font-size: 20px;
+  font-family: 'Overpass', sans-serif;
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+}

@@ -23,16 +23,14 @@ class Seasons extends React.Component {
 
   render() {
     return(
-      <div className="container">
-        <div className="row justify-content-center">
-          {this.state.seasonYear.map(element => {
-            return(
-              <div key={element.id} id={element.id} className={element.selected ? "col-2 season-selected" : "col-2 season-selection"} onClick={this.handleClick}>
-                {element.season}<br/>{element.year}
-              </div>
-            )
-          })}
-        </div>
+      <div className="season-container">
+        {this.state.seasonYear.map(element => {
+          return(
+            <div key={element.id} id={element.id} className={element.selected ? "col-2 season-selected" : "col-2 season-selection"} onClick={this.handleClick}>
+              {element.season}<br/>{element.year}
+            </div>
+          )
+        })}
       </div>
     )
   }
