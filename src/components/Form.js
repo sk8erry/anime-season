@@ -7,7 +7,7 @@ class Form extends React.Component {
       {
         id: 0,
         title: 'POPULARITY',
-        selected: false,
+        selected: true,
         key: 'sort'
       },
       {

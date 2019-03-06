@@ -60,13 +60,12 @@ class App extends Component {
       })
     })
   */
-  componentDidMount = () => {
+  componentDidMount = async () => {
     this.getMedia()
   }
 
   getMedia = async () => {
-    console.log("in getting media",this.state.variables)
-    const apiCall = await fetch(
+    const data = await fetch(
       this.state.url, 
       {
         method: 'POST',
@@ -79,11 +78,23 @@ class App extends Component {
             variables: this.state.variables
         })
       }
-    )
-
-    const data = await apiCall.json()
-
+    ).then(
+      response => {
+        if (response.status !== 200) {
+          console.log('Looks like there was a problem. Status Code: ' +
+            response.status);
+          return;
+        } else {
+          return response.json()
+        }
+      }
+    ).catch(function(err) {
+      console.log('Fetch Erro :-S', err)
+    })
+    
     this.setState({media: data.data.Page.media})
+    //console.log(data)
+    //
     
     //recursively call getMedia if multipage
     //Currently disabled to allow better response time
@@ -103,7 +114,6 @@ class App extends Component {
       })
     })
     */
-    console.log("getting media", this.state.media)
   }
 
   handleSeasonChange = async (newseason) => {

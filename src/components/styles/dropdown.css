@@ -19,7 +19,14 @@ p {
   margin: 0;
   padding: 0;
 }
+i {
+  margin-left: 20px;
+  font-size: 25px;
+}
 
+.fas.fa-check {
+  font-size: 15px;
+}
 
 .dd-wrapper {
   -webkit-user-select: none;

@@ -48,7 +48,7 @@ class Dropdown extends Component{
     return(
       <div className="dd-wrapper">
         <div className="dd-header" onClick={() => this.toggleList()}>
-          <div className="dd-header-title">{headerTitle}</div>
+          <div className="dd-header-title">Sort By</div>
           {listOpen
             ? <i class="fas fa-angle-up" style={{marginRight: "5px", position: "absolute", right: "5px"}}></i>
             : <i class="fas fa-angle-down" style={{marginRight: "5px", position: "absolute", right: "5px"}}></i>
