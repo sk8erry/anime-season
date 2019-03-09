@@ -14,9 +14,9 @@ class Seasons extends React.Component {
   handleClick = (e) => {
     let list = document.getElementsByClassName("season-selected")
     for (let element of list) {
-      element.className = "col-2 season-selection"
+      element.className = "season-selection"
     }
-    e.target.className = "col-2 season-selected"
+    e.target.className = "season-selected"
     console.log(e.target)
     this.props.handleSeasonChange(this.state.seasonYear[e.target.id])
   }
@@ -26,7 +26,7 @@ class Seasons extends React.Component {
       <div className="season-container">
         {this.state.seasonYear.map(element => {
           return(
-            <div key={element.id} id={element.id} className={element.selected ? "col-2 season-selected" : "col-2 season-selection"} onClick={this.handleClick}>
+            <div key={element.id} id={element.id} className={element.selected ? "season-selected" : "season-selection"} onClick={this.handleClick}>
               {element.season}<br/>{element.year}
             </div>
           )

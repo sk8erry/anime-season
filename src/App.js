@@ -89,9 +89,9 @@ class App extends Component {
         }
       }
     ).catch(function(err) {
-      console.log('Fetch Erro :-S', err)
+      console.log('Fetch Error :-S', err)
     })
-    
+
     this.setState({media: data.data.Page.media})
     //console.log(data)
     //

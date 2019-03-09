@@ -10,6 +10,8 @@
   font-family: 'Overpass', sans-serif;
   background: transparent;
   cursor: pointer;
+  text-align: center;
+  margin: 0 20px 0 20px;
 }
 
 .season-selected {
@@ -19,4 +21,5 @@
   background: transparent;
   cursor: pointer;
   text-align: center;
+  margin: 0 20px 0 20px;
 }
