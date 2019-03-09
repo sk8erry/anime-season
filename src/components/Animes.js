@@ -1,5 +1,6 @@
 import React from 'react'
 import Anime from './Anime'
+import './Animes.css'
 
 class Animes extends React.Component {
 	state = {
@@ -12,10 +13,8 @@ class Animes extends React.Component {
 
 	render() {
 		return(
-			<div className="container">
-				<div className="row justify-content-center">
-					{this.props.animes.map(anime => <Anime anime={anime} key={anime.id}/>)}
-				</div>
+			<div className="animes-wrapper">			
+				{this.props.animes.map(anime => <Anime anime={anime} key={anime.id}/>)}	
 			</div>
 		)
 	}

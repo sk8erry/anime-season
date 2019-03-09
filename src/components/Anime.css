@@ -1,0 +1,71 @@
+div {
+  font-family: 'Overpass', sans-serif;
+}
+
+.anime {
+  display: flex;
+  width: 500px;
+  height: 300px;
+  border: 0 !important;
+  box-shadow: 0 4px 3px -3px black;
+  background-color: #fafdff;
+  margin: 20px;
+}
+
+.anime-img {
+  background: url('https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/nx99263-SJSk5d6mhQZO.jpg') center center no-repeat;
+  background-size: cover;
+  width: 200px;
+  height: 100%;
+  position: relative;
+}
+
+.anime-title-studio {
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  background-color: white;
+  opacity: 0.9;
+}
+
+.anime-info {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  max-width: 300px;
+  text-align: left;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.anime-info-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.anime-info-top {
+  display: flex;
+  padding: 10px;
+  flex-basis: 25%;
+  justify-content: space-between;
+}
+
+.anime-info-bottom {
+  padding: 10px;
+  flex-basis: 65%;
+  overflow: auto;
+  font-size: 12px;
+}
+
+.anime-footer {
+  padding: 10px;
+  background-color: #e8f5ff;
+  flex-basis: 10%;
+  text-align: left;
+}
+
