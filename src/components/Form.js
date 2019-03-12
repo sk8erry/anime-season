@@ -1,5 +1,6 @@
 import React from 'react'
 import Dropdown from './Dropdown'
+import './Form.css'
 
 class Form extends React.Component {
   state = {
@@ -51,13 +52,11 @@ class Form extends React.Component {
 
   render() {
     return(
-      <div style={{textAlign: "right"}}>
-        <Dropdown 
-          title="Sort by "
-          list={this.state.sort}
-          resetThenSet={this.resetThenSet}
-        />
-      </div>
+      <Dropdown 
+        title="Sort by "
+        list={this.state.sort}
+        resetThenSet={this.resetThenSet}
+      />    
     )
   }
 }

@@ -19,7 +19,7 @@ p {
   margin: 0;
   padding: 0;
 }
-i {
+.dd-header-titl i {
   margin-left: 20px;
   font-size: 25px;
 }

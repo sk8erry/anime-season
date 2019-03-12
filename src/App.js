@@ -36,6 +36,7 @@ query ($season: MediaSeason, $seasonYear: Int, $page: Int, $perPage: Int, $sort:
       popularity
       airingSchedule { edges { node { timeUntilAiring } } }
       studios { edges { node { name } } }
+      description
     }
   }
 }
@@ -125,9 +126,7 @@ class App extends Component {
     variables.season = newseason.season
     variables.seasonYear = newseason.year
     variables.page = 1
-    await this.setState({variables})
-    this.getMedia()
-    
+    this.setState({variables}, this.getMedia)
   }
 
   handleSortChange = async (title) => {
@@ -135,24 +134,21 @@ class App extends Component {
       case "SCORE": {
         let variables = Object.assign({}, this.state.variables)
         variables.sort = "SCORE_DESC"
-        await this.setState({variables})
-        this.getMedia()
+        this.setState({variables}, this.getMedia)
         break
       }
 
       case "POPULARITY": {
         let variables = Object.assign({}, this.state.variables)
         variables.sort = "POPULARITY_DESC"
-        await this.setState({variables})
-        this.getMedia()
+        this.setState({variables}, this.getMedia)
         break
       }
 
       case "TRENDING": {
         let variables = Object.assign({}, this.state.variables)
         variables.sort = "TRENDING"
-        await this.setState({variables})
-        this.getMedia()
+        this.setState({variables}, this.getMedia)
         break
       }
 
@@ -164,14 +160,10 @@ class App extends Component {
     console.log(this.state.media)
     return (
       <div className="App">
-        <div className="App-header">
+        <div className="App-controls">
           <h1 className="App-title">SZBZLJ</h1>
-        </div>
-        <div>
           <Seasons handleSeasonChange={this.handleSeasonChange}/>
-        </div>
-        <div className="container py-3">
-            <Form handleSortChange={this.handleSortChange}/>
+          <Form handleSortChange={this.handleSortChange}/>
         </div>
         <Animes animes={this.state.media.slice(0,20)} />
       </div>

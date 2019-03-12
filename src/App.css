@@ -16,6 +16,18 @@
   color: rgb(9, 44, 100);
 }
 
+.App-controls {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+}
+
+@media only screen and (max-width: 800px) {
+  .App-controls {
+      display: none;
+  }
+}
+
 .App-title {
   font-family: 'Bangers', cursive;
   font-size: 70px;
@@ -100,20 +112,6 @@ button:hover {
     padding:0;
     margin:0;
   }
-}
-
-.overlay {
-  float: left;
-  position: absolute;
-  left: 0px;
-  bottom: 0px;
-  width: 100%;
-  z-index: 1000;
-  background:rgba(255,255,255,0.8);
-  padding: 5px;
-  font-size: 15px;
-  text-align: left;
-  font-weight: bold;
 }
 
 button {

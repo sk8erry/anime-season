@@ -12,6 +12,12 @@ div {
   margin: 20px;
 }
 
+@media only screen and (max-width: 800px) {
+  .anime {
+    margin: 0 0 10px 0;
+  }
+}
+
 .anime-img {
   background: url('https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/nx99263-SJSk5d6mhQZO.jpg') center center no-repeat;
   background-size: cover;
