@@ -35,9 +35,7 @@ p {
           user-select: none;
   position: relative;
   display: inline-block;
-  margin-left: 20px;
-  margin-right: 15px;
-  width: 160px;
+  width: 180px;
 }
 .dd-header {
   display: -webkit-box;
