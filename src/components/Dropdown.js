@@ -50,8 +50,8 @@ class Dropdown extends Component{
         <div className="dd-header" onClick={() => this.toggleList()}>
           <div className="dd-header-title">Sort By</div>
           {listOpen
-            ? <i class="fas fa-angle-up" style={{marginRight: "5px", position: "absolute", right: "5px"}}></i>
-            : <i class="fas fa-angle-down" style={{marginRight: "5px", position: "absolute", right: "5px"}}></i>
+            ? <i className="fas fa-angle-up" style={{marginRight: "5px", position: "absolute", right: "5px"}}></i>
+            : <i className="fas fa-angle-down" style={{marginRight: "5px", position: "absolute", right: "5px"}}></i>
           }
         </div>
         {listOpen && <ul className="dd-list" onClick={e => e.stopPropagation()}>

@@ -31,6 +31,7 @@ query ($season: MediaSeason, $seasonYear: Int, $page: Int, $perPage: Int, $sort:
       coverImage {
         large
       }
+      genres
       source
       averageScore
       popularity
@@ -79,21 +80,19 @@ class App extends Component {
             variables: this.state.variables
         })
       }
-    ).then(
-      response => {
+    ).then(response => {
         if (response.status !== 200) {
           console.log('Looks like there was a problem. Status Code: ' +
             response.status);
-          return;
+          return
         } else {
           return response.json()
         }
       }
-    ).catch(function(err) {
-      console.log('Fetch Error :-S', err)
-    })
-
+    ).catch(err => console.log('Fetch Error :-S', err))
+  
     this.setState({media: data.data.Page.media})
+    console.log(data)
     //console.log(data)
     //
     
@@ -117,7 +116,7 @@ class App extends Component {
     */
   }
 
-  handleSeasonChange = async (newseason) => {
+  handleSeasonChange = (newseason) => {
     console.log("arg",newseason)
     this.setState({
       media: []
@@ -129,7 +128,7 @@ class App extends Component {
     this.setState({variables}, this.getMedia)
   }
 
-  handleSortChange = async (title) => {
+  handleSortChange = (title) => {
     switch(title) {
       case "SCORE": {
         let variables = Object.assign({}, this.state.variables)
@@ -157,7 +156,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.media)
     return (
       <div className="App">
         <div className="App-controls">
@@ -167,7 +165,7 @@ class App extends Component {
         </div>
         <Animes animes={this.state.media.slice(0,20)} />
       </div>
-    );
+    )
   }
 }
 //<Form />

@@ -16,15 +16,16 @@ class Anime extends React.Component {
 	}
 
 	render() {
+		let anime = this.props.anime
 		return(
 			<div className="anime">
-				<div className="anime-img" style={{backgroundImage: `url(${this.props.anime.coverImage.large})`}}>
+				<div className="anime-img" style={{backgroundImage: `url(${anime.coverImage.large})`}}>
 					<div className="anime-title-studio">
 						<div className="anime-title">
-							{this.props.anime.title.native}
+							{anime.title.native}
 						</div>
 						<div className="anime-studio">
-							{this.props.anime.studios.edges.length === 0 ? "N/A" : this.props.anime.studios.edges[0].node.name}
+							{anime.studios.edges.length === 0 ? "N/A" : anime.studios.edges[0].node.name}
 						</div>
 					</div>
 				</div>
@@ -32,18 +33,15 @@ class Anime extends React.Component {
 					<div className="anime-info-wrapper">
 						<div className="anime-info-top">
 							<div className="anime-info-top-left">
-								Info Top L
+								{anime.source}
 							</div>
 							<div className="anime-info-top-right">
 								<div>
-									<i className="far fa-heart"></i> # 1
-								</div>
-								<div>
-									<i className="fas fa-chart-line"></i> # 3
+									<i className="far fa-heart"></i> {anime.popularity}
 								</div>
 							</div>
 						</div>
-					<div className="anime-info-bottom" dangerouslySetInnerHTML={{__html: this.props.anime.description}}>
+					<div className="anime-info-bottom" dangerouslySetInnerHTML={{__html: anime.description}}>
 					</div>
 					</div>
 					<div className="anime-footer">
