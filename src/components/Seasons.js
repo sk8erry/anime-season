@@ -4,10 +4,10 @@ import './Season.css'
 class Seasons extends React.Component {
   state = {
     seasonYear: [
-      {season: "WINTER", year: 2019, selected: true, id: 0},
-      {season: "FALL", year: 2018, selected: false, id: 1},
-      {season: "SUMMER", year: 2018, selected: false, id: 2},
-      {season: "SPRING", year: 2018, selected: false, id: 3}
+      {season: "SPRING", year: 2019, selected: true, id: 0},
+      {season: "WINTER", year: 2019, selected: false, id: 1},
+      {season: "FALL", year: 2018, selected: false, id: 2},
+      {season: "SUMMER", year: 2018, selected: false, id: 3}
     ]
   }
 

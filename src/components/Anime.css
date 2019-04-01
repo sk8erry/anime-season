@@ -57,8 +57,37 @@ div {
 .anime-info-top {
   display: flex;
   padding: 10px;
-  flex-basis: 25%;
+  flex-basis: 15%;
   justify-content: space-between;
+  background-color: #e8f5ff;
+}
+
+.countdown {
+  font-family: 'Bangers', cursive;
+  text-align: right;
+  float: right;
+  margin: 2px;
+}
+
+.number {
+  font-size: 36px;
+}
+
+.days {
+  font-size: 20px;
+}
+
+.anime-info-top-right {
+  font-size: 16px;
+}
+
+.anime-info-top-left {
+  font-size: 16px;
+}
+
+.fa-heart {
+  font-size: 16px;
+  color: #f44271;
 }
 
 .anime-info-bottom {

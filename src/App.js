@@ -48,7 +48,7 @@ class App extends Component {
     url: 'https://graphql.anilist.co',
     media: [],
     variables: {
-      season: "WINTER",
+      season: "SPRING",
       seasonYear: 2019,
       page: 1,
       perPage: 50,
@@ -159,7 +159,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-controls">
-          <h1 className="App-title">SZBZLJ</h1>
+          <h1 className="App-title">XINFAN</h1>
           <Seasons handleSeasonChange={this.handleSeasonChange}/>
           <Form handleSortChange={this.handleSortChange}/>
         </div>

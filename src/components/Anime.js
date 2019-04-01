@@ -2,10 +2,19 @@ import React from 'react'
 import './Anime.css'
 
 class Anime extends React.Component {
-	getAiringTime = (arg) => {
-		let airingStart = new Date(Date.parse(arg))
-		console.log(airingStart.getDay())
-	}
+	getNextAiringTime = (args) => {
+		for(let i = 0; i < args.length; i++) {
+			if (args[i].node.timeUntilAiring > 0) {
+				let airingDays = Math.floor(args[i].node.timeUntilAiring / 3600 / 24)
+				let airingHours = Math.floor((args[i].node.timeUntilAiring / 3600) - airingDays * 24)
+				let airingMinutes = Math.floor((args[i].node.timeUntilAiring - (airingDays * 3600 * 24) - (airingHours * 3600)) / 60)
+				console.log(args[i].node.timeUntilAiring)
+				console.log(airingMinutes)
+				return [airingDays, airingHours, airingMinutes]
+			}
+		}
+		return false
+	} //Get next airing time in days, hours and minutes
 
 	state = {
 		anime: this.props.anime
@@ -17,6 +26,8 @@ class Anime extends React.Component {
 
 	render() {
 		let anime = this.props.anime
+		let nextAiringTime = this.getNextAiringTime(anime.airingSchedule.edges)
+		console.log(anime.title)
 		return(
 			<div className="anime">
 				<div className="anime-img" style={{backgroundImage: `url(${anime.coverImage.large})`}}>
@@ -41,7 +52,26 @@ class Anime extends React.Component {
 								</div>
 							</div>
 						</div>
-					<div className="anime-info-bottom" dangerouslySetInnerHTML={{__html: anime.description}}>
+					<div className="anime-info-bottom">
+						<div>Next episode airing in</div>
+						<span>
+							{nextAiringTime[2] > 0 ? 
+								<span className="countdown">
+									<span className="number">{nextAiringTime[2]}</span><span className="days"> minutes </span>
+								</span>:null}
+						</span>
+						<span>
+							{nextAiringTime[1] > 0 ? 
+								<span className="countdown">
+									<span className="number">{nextAiringTime[1]}</span><span className="days"> Hours </span>
+								</span>:null}
+						</span>
+						<span>
+							{nextAiringTime[0] > 0 ? 
+								<span className="countdown">
+									<span className="number">{nextAiringTime[0]}</span><span className="days"> Days </span>
+								</span>:null}
+						</span>
 					</div>
 					</div>
 					<div className="anime-footer">
